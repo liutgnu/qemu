@@ -127,6 +127,18 @@ static void cleanup(const char *filename) {
 	unlink(path);
 }
 
+/*
+ * We need to input ports first. 
+ * portsrc represent port which data come from.
+ * portdest represent port which data go to.
+ *
+ *          Postcopy migration gragh
+ *          
+ *              ----------------
+ * source ----> |   malware    | ----> destination
+ *              ----------------
+ *           portsrc        portdest
+ */            
 static void test_migrate(void)
 {
 	int portsrc,portdest;
